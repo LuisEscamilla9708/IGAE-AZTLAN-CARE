@@ -1,812 +1,432 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>IGAE - AZTLAN CARE</title>
-
-    <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IGAE — AZTLAN CARE</title>
+<link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-
-<div class="contenedor">
-
-    <!-- MENÚ LATERAL -->
-    <aside class="sidebar">
-
-        <div class="logo">
-            <h2>IGAE</h2>
-            <p>AZTLAN CARE</p>
-        </div>
-
-        <button class="menu-btn activo" data-section="inicio">
-            Inicio
-        </button>
-
-        <button class="menu-btn" data-section="usuarios">
-            Usuarios y Roles
-        </button>
-
-        <button class="menu-btn" data-section="pacientes">
-            Pacientes
-        </button>
-
-        <button class="menu-btn" data-section="enfermeria">
-            Personal de Enfermería
-        </button>
-
-        <button class="menu-btn" data-section="reportes">
-            Reportes
-        </button>
-
-        <button class="menu-btn" data-section="servicios">
-            Catálogo de Servicios
-        </button>
-
-        <button class="menu-btn" data-section="asignaciones">
-            Asignaciones y Agenda
-        </button>
-
-        <button class="menu-btn" data-section="visitas">
-            Visitas y Seguimiento
-        </button>
-
-        <button class="menu-btn" data-section="documentos">
-            Documentos
-        </button>
-
-        <button class="menu-btn" data-section="perfil">
-            Mi Perfil
-        </button>
-
-        <button class="cerrar-sesion" onclick="cerrarSesion()">
-            Cerrar sesión
-        </button>
-
-    </aside>
-
-
-    <!-- CONTENIDO PRINCIPAL -->
-    <main class="contenido">
-
-        <!-- CABECERA -->
-        <header class="encabezado">
-            <div>
-                <h1 id="tituloPagina">Panel principal</h1>
-                <p>Sistema Web Integral de Gestión</p>
-            </div>
-
-            <div class="usuario">
-                Administrador
-            </div>
-        </header>
-
-
-        <!-- ========================= -->
-        <!-- INICIO -->
-        <!-- ========================= -->
-
-        <section id="inicio" class="seccion activa">
-
-            <h2>Bienvenido a IGAE</h2>
-
-            <p class="descripcion">
-                Panel general de información de AZTLAN CARE.
-            </p>
-
-            <div class="tarjetas">
-
-                <div class="tarjeta">
-                    <h3>Pacientes</h3>
-                    <p class="numero">25</p>
-                    <span>Pacientes registrados</span>
-                </div>
-
-                <div class="tarjeta">
-                    <h3>Enfermería</h3>
-                    <p class="numero">18</p>
-                    <span>Personal registrado</span>
-                </div>
-
-                <div class="tarjeta">
-                    <h3>Servicios</h3>
-                    <p class="numero">12</p>
-                    <span>Servicios activos</span>
-                </div>
-
-                <div class="tarjeta">
-                    <h3>Visitas</h3>
-                    <p class="numero">8</p>
-                    <span>Visitas programadas</span>
-                </div>
-
-            </div>
-
-            <div class="panel">
-
-                <h3>Próximas actividades</h3>
-
-                <table>
-
-                    <thead>
-                    <tr>
-                        <th>Paciente</th>
-                        <th>Enfermero</th>
-                        <th>Servicio</th>
-                        <th>Fecha</th>
-                    </tr>
-                    </thead>
-
-                    <tbody>
-
-                    <tr>
-                        <td>María López</td>
-                        <td>Ana Martínez</td>
-                        <td>Cuidados generales</td>
-                        <td>30/10/2026</td>
-                    </tr>
-
-                    <tr>
-                        <td>José Ramírez</td>
-                        <td>Carlos Pérez</td>
-                        <td>Administración de medicamento</td>
-                        <td>31/10/2026</td>
-                    </tr>
-
-                    </tbody>
-
-                </table>
-
-            </div>
-
-        </section>
-
-
-        <!-- ========================= -->
-        <!-- USUARIOS -->
-        <!-- ========================= -->
-
-        <section id="usuarios" class="seccion">
-
-            <h2>Usuarios y Roles</h2>
-
-            <div class="panel">
-
-                <h3>Registrar usuario</h3>
-
-                <form id="formUsuario">
-
-                    <div class="form-grid">
-
-                        <div>
-                            <label>Nombre</label>
-                            <input
-                                type="text"
-                                id="nombreUsuario"
-                                required>
-                        </div>
-
-                        <div>
-                            <label>Correo</label>
-                            <input
-                                type="email"
-                                id="correoUsuario"
-                                required>
-                        </div>
-
-                        <div>
-                            <label>Rol</label>
-
-                            <select id="rolUsuario">
-
-                                <option>Administrador</option>
-                                <option>Coordinador de Enfermería</option>
-                                <option>Personal de Enfermería</option>
-                                <option>Capital Humano</option>
-
-                            </select>
-
-                        </div>
-
-                    </div>
-
-                    <button class="btn-principal">
-                        Registrar usuario
-                    </button>
-
-                </form>
-
-            </div>
-
-
-            <div class="panel">
-
-                <h3>Usuarios registrados</h3>
-
-                <table>
-
-                    <thead>
-
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Correo</th>
-                        <th>Rol</th>
-                        <th>Estado</th>
-                    </tr>
-
-                    </thead>
-
-                    <tbody id="tablaUsuarios">
-
-                    <tr>
-                        <td>Administrador General</td>
-                        <td>admin@aztlancare.com</td>
-                        <td>Administrador</td>
-                        <td>Activo</td>
-                    </tr>
-
-                    </tbody>
-
-                </table>
-
-            </div>
-
-        </section>
-
-
-        <!-- ========================= -->
-        <!-- PACIENTES -->
-        <!-- ========================= -->
-
-        <section id="pacientes" class="seccion">
-
-            <h2>Pacientes</h2>
-
-            <div class="panel">
-
-                <h3>Registrar paciente</h3>
-
-                <form id="formPaciente">
-
-                    <div class="form-grid">
-
-                        <div>
-                            <label>Nombre</label>
-                            <input
-                                type="text"
-                                id="nombrePaciente"
-                                required>
-                        </div>
-
-                        <div>
-                            <label>Edad</label>
-                            <input
-                                type="number"
-                                id="edadPaciente"
-                                required>
-                        </div>
-
-                        <div>
-                            <label>Teléfono</label>
-                            <input
-                                type="text"
-                                id="telefonoPaciente">
-                        </div>
-
-                        <div>
-                            <label>Diagnóstico</label>
-                            <input
-                                type="text"
-                                id="diagnosticoPaciente">
-                        </div>
-
-                    </div>
-
-                    <button class="btn-principal">
-                        Registrar paciente
-                    </button>
-
-                </form>
-
-            </div>
-
-
-            <div class="panel">
-
-                <h3>Pacientes registrados</h3>
-
-                <table>
-
-                    <thead>
-
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Edad</th>
-                        <th>Teléfono</th>
-                        <th>Diagnóstico</th>
-                    </tr>
-
-                    </thead>
-
-                    <tbody id="tablaPacientes">
-
-                    <tr>
-                        <td>María López</td>
-                        <td>72</td>
-                        <td>55 1234 5678</td>
-                        <td>Diabetes</td>
-                    </tr>
-
-                    </tbody>
-
-                </table>
-
-            </div>
-
-        </section>
-
-
-        <!-- ========================= -->
-        <!-- PERSONAL DE ENFERMERÍA -->
-        <!-- ========================= -->
-
-        <section id="enfermeria" class="seccion">
-
-            <h2>Personal de Enfermería</h2>
-
-            <div class="panel">
-
-                <h3>Personal registrado</h3>
-
-                <table>
-
-                    <thead>
-
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Especialidad</th>
-                        <th>Disponibilidad</th>
-                    </tr>
-
-                    </thead>
-
-                    <tbody>
-
-                    <tr>
-                        <td>Ana Martínez</td>
-                        <td>Enfermería General</td>
-                        <td>
-                            <span class="estado disponible">
-                                Disponible
-                            </span>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>Carlos Pérez</td>
-                        <td>Cuidados Intensivos</td>
-                        <td>
-                            <span class="estado ocupado">
-                                No disponible
-                            </span>
-                        </td>
-                    </tr>
-
-                    </tbody>
-
-                </table>
-
-            </div>
-
-        </section>
-
-
-        <!-- ========================= -->
-        <!-- REPORTES -->
-        <!-- ========================= -->
-
-        <section id="reportes" class="seccion">
-
-            <h2>Reportes</h2>
-
-            <div class="tarjetas">
-
-                <div class="tarjeta">
-                    <h3>Pacientes registrados</h3>
-                    <p class="numero">25</p>
-                </div>
-
-                <div class="tarjeta">
-                    <h3>Personal registrado</h3>
-                    <p class="numero">18</p>
-                </div>
-
-                <div class="tarjeta">
-                    <h3>Servicios realizados</h3>
-                    <p class="numero">43</p>
-                </div>
-
-                <div class="tarjeta">
-                    <h3>Visitas realizadas</h3>
-                    <p class="numero">67</p>
-                </div>
-
-            </div>
-
-            <div class="panel">
-
-                <h3>Exportar información</h3>
-
-                <button
-                    class="btn-principal"
-                    onclick="mensaje('Reporte PDF generado')">
-
-                    Exportar PDF
-
-                </button>
-
-                <button
-                    class="btn-secundario"
-                    onclick="mensaje('Reporte Excel generado')">
-
-                    Exportar Excel
-
-                </button>
-
-            </div>
-
-        </section>
-
-
-        <!-- ========================= -->
-        <!-- SERVICIOS -->
-        <!-- ========================= -->
-
-        <section id="servicios" class="seccion">
-
-            <h2>Catálogo de Servicios</h2>
-
-            <div class="panel">
-
-                <h3>Registrar servicio</h3>
-
-                <form id="formServicio">
-
-                    <div class="form-grid">
-
-                        <div>
-                            <label>Nombre del servicio</label>
-
-                            <input
-                                type="text"
-                                id="nombreServicio"
-                                required>
-                        </div>
-
-                        <div>
-                            <label>Descripción</label>
-
-                            <input
-                                type="text"
-                                id="descripcionServicio">
-                        </div>
-
-                    </div>
-
-                    <button class="btn-principal">
-                        Registrar servicio
-                    </button>
-
-                </form>
-
-            </div>
-
-
-            <div class="panel">
-
-                <h3>Servicios disponibles</h3>
-
-                <table>
-
-                    <thead>
-
-                    <tr>
-                        <th>Servicio</th>
-                        <th>Descripción</th>
-                    </tr>
-
-                    </thead>
-
-                    <tbody id="tablaServicios">
-
-                    <tr>
-                        <td>Cuidados generales</td>
-                        <td>Atención general de enfermería</td>
-                    </tr>
-
-                    <tr>
-                        <td>Administración de medicamento</td>
-                        <td>Aplicación y control de medicamentos</td>
-                    </tr>
-
-                    </tbody>
-
-                </table>
-
-            </div>
-
-        </section>
-
-
-        <!-- ========================= -->
-        <!-- ASIGNACIONES -->
-        <!-- ========================= -->
-
-        <section id="asignaciones" class="seccion">
-
-            <h2>Asignaciones y Agenda</h2>
-
-            <div class="panel">
-
-                <h3>Registrar asignación</h3>
-
-                <div class="form-grid">
-
-                    <div>
-                        <label>Paciente</label>
-
-                        <select>
-                            <option>María López</option>
-                            <option>José Ramírez</option>
-                        </select>
-                    </div>
-
-
-                    <div>
-                        <label>Enfermero</label>
-
-                        <select>
-                            <option>Ana Martínez</option>
-                            <option>Carlos Pérez</option>
-                        </select>
-                    </div>
-
-
-                    <div>
-                        <label>Fecha</label>
-
-                        <input type="date">
-                    </div>
-
-
-                    <div>
-                        <label>Hora</label>
-
-                        <input type="time">
-                    </div>
-
-                </div>
-
-                <button
-                    class="btn-principal"
-                    onclick="mensaje('Asignación registrada')">
-
-                    Registrar asignación
-
-                </button>
-
-            </div>
-
-
-            <div class="panel">
-
-                <h3>Agenda</h3>
-
-                <table>
-
-                    <thead>
-
-                    <tr>
-                        <th>Paciente</th>
-                        <th>Enfermero</th>
-                        <th>Fecha</th>
-                        <th>Hora</th>
-                    </tr>
-
-                    </thead>
-
-                    <tbody>
-
-                    <tr>
-                        <td>María López</td>
-                        <td>Ana Martínez</td>
-                        <td>30/10/2026</td>
-                        <td>10:00</td>
-                    </tr>
-
-                    </tbody>
-
-                </table>
-
-            </div>
-
-        </section>
-
-
-        <!-- ========================= -->
-        <!-- VISITAS -->
-        <!-- ========================= -->
-
-        <section id="visitas" class="seccion">
-
-            <h2>Visitas y Seguimiento</h2>
-
-            <div class="panel">
-
-                <h3>Registrar visita</h3>
-
-                <div class="form-grid">
-
-                    <div>
-                        <label>Paciente</label>
-                        <input type="text">
-                    </div>
-
-                    <div>
-                        <label>Presión arterial</label>
-                        <input type="text">
-                    </div>
-
-                    <div>
-                        <label>Temperatura</label>
-                        <input type="text">
-                    </div>
-
-                    <div>
-                        <label>Medicamentos administrados</label>
-                        <input type="text">
-                    </div>
-
-                </div>
-
-                <label>Observaciones</label>
-
-                <textarea
-                    rows="4"
-                    placeholder="Escriba las observaciones de la visita">
-                </textarea>
-
-                <button
-                    class="btn-principal"
-                    onclick="mensaje('Visita registrada correctamente')">
-
-                    Registrar visita
-
-                </button>
-
-            </div>
-
-        </section>
-
-
-        <!-- ========================= -->
-        <!-- DOCUMENTOS -->
-        <!-- ========================= -->
-
-        <section id="documentos" class="seccion">
-
-            <h2>Documentos</h2>
-
-            <div class="panel">
-
-                <h3>Subir documento</h3>
-
-                <input type="file">
-
-                <button
-                    class="btn-principal"
-                    onclick="mensaje('Documento cargado')">
-
-                    Subir documento
-
-                </button>
-
-            </div>
-
-
-            <div class="panel">
-
-                <h3>Documentos registrados</h3>
-
-                <table>
-
-                    <thead>
-
-                    <tr>
-                        <th>Documento</th>
-                        <th>Paciente</th>
-                        <th>Fecha</th>
-                        <th>Acción</th>
-                    </tr>
-
-                    </thead>
-
-                    <tbody>
-
-                    <tr>
-                        <td>Receta médica.pdf</td>
-                        <td>María López</td>
-                        <td>28/10/2026</td>
-                        <td>
-                            <button class="btn-tabla">
-                                Descargar
-                            </button>
-                        </td>
-                    </tr>
-
-                    </tbody>
-
-                </table>
-
-            </div>
-
-        </section>
-
-
-        <!-- ========================= -->
-        <!-- PERFIL -->
-        <!-- ========================= -->
-
-        <section id="perfil" class="seccion">
-
-            <h2>Mi Perfil</h2>
-
-            <div class="panel perfil">
-
-                <h3>Información del usuario</h3>
-
-                <p>
-                    <strong>Nombre:</strong>
-                    Administrador General
-                </p>
-
-                <p>
-                    <strong>Correo:</strong>
-                    admin@aztlancare.com
-                </p>
-
-                <p>
-                    <strong>Rol:</strong>
-                    Administrador
-                </p>
-
-                <button
-                    class="btn-principal"
-                    onclick="mensaje('Función de edición de perfil')">
-
-                    Editar perfil
-
-                </button>
-
-                <button
-                    class="btn-secundario"
-                    onclick="mensaje('Función para cambiar contraseña')">
-
-                    Cambiar contraseña
-
-                </button>
-
-            </div>
-
-        </section>
-
-    </main>
-
-</div>
-
+<!-- Pantalla para entrar al sistema y recuperar la contraseña -->
+<section id="acceso" class="acceso"><div class="panel login"><h1>IGAE</h1><p>AZTLAN CARE</p><h2>Inicio de sesión</h2><form id="login"><label>Correo<input type="email" required></label><label>Contraseña<input type="password" required></label><label>Rol<select id="rol"><option>Administrador</option><option>Coordinador de Enfermería</option><option>Personal de Enfermería</option><option>Capital Humano</option></select></label><button class="btn">Iniciar sesión</button></form><details><summary>Recuperar contraseña</summary><form data-modo="demo"><label>Correo<input type="email" required></label><button class="btn">Enviar solicitud</button></form></details></div></section>
+<div id="sistema" class="contenedor" hidden>
+<!-- Menú para entrar a cada módulo -->
+<aside class="sidebar"><div class="logo"><h1>IGAE</h1><p>AZTLAN CARE</p></div>
+<button class="menu-btn activo" data-section="inicio">Inicio</button>
+<button class="menu-btn" data-section="usuarios">Usuarios y Roles</button>
+<button class="menu-btn" data-section="pacientes">Pacientes</button>
+<button class="menu-btn" data-section="enfermeria">Personal de Enfermería</button>
+<button class="menu-btn" data-section="reportes">Reportes</button>
+<button class="menu-btn" data-section="servicios">Catálogo de Servicios</button>
+<button class="menu-btn" data-section="asignaciones">Asignaciones y Agenda</button>
+<button class="menu-btn" data-section="visitas">Visitas y Seguimiento</button>
+<button class="menu-btn" data-section="documentos">Documentos</button>
+<button class="menu-btn" data-section="perfil">Mi Perfil</button>
+<button id="salir" class="cerrar">Cerrar sesión</button></aside>
+<main class="contenido"><header><div><h1 id="titulo">Panel principal</h1><p>Sistema Web Integral de Gestión</p></div><strong id="usuario">Administrador</strong></header>
+<!-- Panel con los indicadores y la agenda -->
+<section id="inicio" class="seccion"><h2>Bienvenido a IGAE</h2><p>Panel general de información de AZTLAN CARE</p><div class="tarjetas">
+<div class="tarjeta"><h3>Pacientes activos</h3><strong>0</strong></div>
+<div class="tarjeta"><h3>Personal disponible</h3><strong>0</strong></div>
+<div class="tarjeta"><h3>Servicios programados</h3><strong>0</strong></div>
+<div class="tarjeta"><h3>Visitas</h3><strong>0</strong></div>
+</div><div class="form-grid"><article class="panel"><h3>Alertas importantes</h3><p>No hay alertas pendientes.</p></article><article class="panel"><h3>Notificaciones</h3><p>No hay notificaciones nuevas.</p></article></div><article class="panel"><h3>Agenda del día</h3><div class="tabla"><table><thead><tr><th>Paciente</th><th>Enfermero</th><th>Servicio</th><th>Fecha</th><th>Hora inicio</th><th>Hora fin</th><th>Estado</th></tr></thead>
+<tbody data-lista="asignaciones"></tbody></table></div></article></section>
+<!-- Registro y consulta de usuarios y permisos -->
+<section id="usuarios" class="seccion" hidden><h2>Usuarios y Roles</h2><nav class="submenus">
+<button data-tab="usuarios-0" class="activo">Consultar usuarios</button>
+<button data-tab="usuarios-1" class="">Registrar usuario</button>
+<button data-tab="usuarios-2" class="">Ver información del usuario</button>
+<button data-tab="usuarios-3" class="">Editar usuario</button>
+<button data-tab="usuarios-4" class="">Gestionar roles y permisos</button>
+<button data-tab="usuarios-5" class="">Desactivar usuario</button>
+</nav>
+<article id="usuarios-0" class="panel vista" ><h3>Consultar usuarios</h3>
+<div class="tabla"><table><thead><tr><th>Nombre</th><th>Correo</th><th>Rol</th><th>Estado</th></tr></thead>
+<tbody data-lista="usuarios"></tbody></table></div>
+</article>
+<article id="usuarios-1" class="panel vista" hidden><h3>Registrar usuario</h3>
+<form data-modo="alta" data-tabla="usuarios"><div class="form-grid">
+<label>Nombre<input type="text" required></label>
+<label>Correo<input type="email" required></label>
+<label>Rol<select required><option>Administrador</option><option>Coordinador de Enfermería</option><option>Personal de Enfermería</option><option>Capital Humano</option></select></label>
+<label>Estado<select required><option>Activo</option><option>Inactivo</option></select></label>
+</div><button class="btn">Guardar</button></form>
+</article>
+<article id="usuarios-2" class="panel vista" hidden><h3>Ver información del usuario</h3>
+<div class="tabla"><table><thead><tr><th>Nombre</th><th>Correo</th><th>Rol</th><th>Estado</th></tr></thead>
+<tbody data-lista="usuarios"></tbody></table></div>
+</article>
+<article id="usuarios-3" class="panel vista" hidden><h3>Editar usuario</h3>
+<div class="tabla"><table><thead><tr><th>Nombre</th><th>Correo</th><th>Rol</th><th>Estado</th></tr></thead>
+<tbody data-lista="usuarios"></tbody></table></div><label>Registro<select class="registros" data-origen="usuarios"></select></label><form data-modo="editar" data-tabla="usuarios"><div class="form-grid">
+<label>Nombre<input type="text" required></label>
+<label>Correo<input type="email" required></label>
+<label>Rol<select required><option>Administrador</option><option>Coordinador de Enfermería</option><option>Personal de Enfermería</option><option>Capital Humano</option></select></label>
+<label>Estado<select required><option>Activo</option><option>Inactivo</option></select></label>
+</div><button class="btn">Guardar</button></form>
+</article>
+<article id="usuarios-4" class="panel vista" hidden><h3>Gestionar roles y permisos</h3>
+<form data-modo="demo" data-tabla=""><div class="form-grid">
+<label>Usuario<input type="text" required></label>
+<label>Rol<select required><option>Administrador</option><option>Coordinador de Enfermería</option><option>Personal de Enfermería</option><option>Capital Humano</option></select></label>
+<label>Permisos<input type="text" required></label>
+</div><button class="btn">Guardar</button></form>
+</article>
+<article id="usuarios-5" class="panel vista" hidden><h3>Desactivar usuario</h3>
+<div class="tabla"><table><thead><tr><th>Nombre</th><th>Correo</th><th>Rol</th><th>Estado</th></tr></thead>
+<tbody data-lista="usuarios"></tbody></table></div><label>Registro<select class="registros" data-origen="usuarios"></select></label><button class="btn" data-baja="usuarios">Desactivar</button>
+</article>
+</section>
+<!-- Datos de pacientes y expediente clínico -->
+<section id="pacientes" class="seccion" hidden><h2>Pacientes</h2><nav class="submenus">
+<button data-tab="pacientes-0" class="activo">Consultar pacientes</button>
+<button data-tab="pacientes-1" class="">Registrar paciente</button>
+<button data-tab="pacientes-2" class="">Ver paciente</button>
+<button data-tab="pacientes-3" class="">Editar paciente</button>
+<button data-tab="pacientes-4" class="">Expediente clínico</button>
+<button data-tab="pacientes-5" class="">Historial clínico</button>
+<button data-tab="pacientes-6" class="">Diagnóstico</button>
+<button data-tab="pacientes-7" class="">Notas de enfermería</button>
+<button data-tab="pacientes-8" class="">Documentos adjuntos</button>
+</nav>
+<article id="pacientes-0" class="panel vista" ><h3>Consultar pacientes</h3>
+<div class="tabla"><table><thead><tr><th>Nombre</th><th>Teléfono</th><th>Dirección</th><th>Estado</th></tr></thead>
+<tbody data-lista="pacientes"></tbody></table></div>
+</article>
+<article id="pacientes-1" class="panel vista" hidden><h3>Registrar paciente</h3>
+<form data-modo="alta" data-tabla="pacientes"><div class="form-grid">
+<label>Nombre<input type="text" required></label>
+<label>Teléfono<input type="text" required></label>
+<label>Dirección<input type="text" required></label>
+<label>Estado<select required><option>Activo</option><option>Inactivo</option></select></label>
+</div><button class="btn">Guardar</button></form>
+</article>
+<article id="pacientes-2" class="panel vista" hidden><h3>Ver paciente</h3>
+<div class="tabla"><table><thead><tr><th>Nombre</th><th>Teléfono</th><th>Dirección</th><th>Estado</th></tr></thead>
+<tbody data-lista="pacientes"></tbody></table></div>
+</article>
+<article id="pacientes-3" class="panel vista" hidden><h3>Editar paciente</h3>
+<div class="tabla"><table><thead><tr><th>Nombre</th><th>Teléfono</th><th>Dirección</th><th>Estado</th></tr></thead>
+<tbody data-lista="pacientes"></tbody></table></div><label>Registro<select class="registros" data-origen="pacientes"></select></label><form data-modo="editar" data-tabla="pacientes"><div class="form-grid">
+<label>Nombre<input type="text" required></label>
+<label>Teléfono<input type="text" required></label>
+<label>Dirección<input type="text" required></label>
+<label>Estado<select required><option>Activo</option><option>Inactivo</option></select></label>
+</div><button class="btn">Guardar</button></form>
+</article>
+<article id="pacientes-4" class="panel vista" hidden><h3>Expediente clínico</h3>
+<form data-modo="demo" data-tabla=""><div class="form-grid">
+<label>Paciente<select class="referencia" data-origen="pacientes" required><option value="">Seleccionar</option></select></label>
+<label>Resumen clínico<input type="text" required></label>
+</div><button class="btn">Guardar</button></form>
+</article>
+<article id="pacientes-5" class="panel vista" hidden><h3>Historial clínico</h3>
+<form data-modo="demo" data-tabla=""><div class="form-grid">
+<label>Paciente<select class="referencia" data-origen="pacientes" required><option value="">Seleccionar</option></select></label>
+<label>Historial<input type="text" required></label>
+</div><button class="btn">Guardar</button></form>
+</article>
+<article id="pacientes-6" class="panel vista" hidden><h3>Diagnóstico</h3>
+<form data-modo="demo" data-tabla=""><div class="form-grid">
+<label>Paciente<select class="referencia" data-origen="pacientes" required><option value="">Seleccionar</option></select></label>
+<label>Diagnóstico<input type="text" required></label>
+</div><button class="btn">Guardar</button></form>
+</article>
+<article id="pacientes-7" class="panel vista" hidden><h3>Notas de enfermería</h3>
+<form data-modo="demo" data-tabla=""><div class="form-grid">
+<label>Paciente<select class="referencia" data-origen="pacientes" required><option value="">Seleccionar</option></select></label>
+<label>Notas<input type="text" required></label>
+</div><button class="btn">Guardar</button></form>
+</article>
+<article id="pacientes-8" class="panel vista" hidden><h3>Documentos adjuntos</h3>
+<form data-modo="demo" data-tabla=""><div class="form-grid">
+<label>Paciente<select class="referencia" data-origen="pacientes" required><option value="">Seleccionar</option></select></label>
+<label>Archivo<input type="file" required></label>
+</div><button class="btn">Guardar</button></form>
+</article>
+</section>
+<!-- Personal, especialidades y horarios -->
+<section id="enfermeria" class="seccion" hidden><h2>Personal de Enfermería</h2><nav class="submenus">
+<button data-tab="enfermeria-0" class="activo">Consultar personal de enfermería</button>
+<button data-tab="enfermeria-1" class="">Registrar personal de enfermería</button>
+<button data-tab="enfermeria-2" class="">Editar información</button>
+<button data-tab="enfermeria-3" class="">Especialidad</button>
+<button data-tab="enfermeria-4" class="">Disponibilidad</button>
+<button data-tab="enfermeria-5" class="">Revisar disponibilidad</button>
+<button data-tab="enfermeria-6" class="">Actualizar</button>
+<button data-tab="enfermeria-7" class="">Bloquear fechas</button>
+</nav>
+<article id="enfermeria-0" class="panel vista" ><h3>Consultar personal de enfermería</h3>
+<div class="tabla"><table><thead><tr><th>Nombre</th><th>Especialidad</th><th>Disponibilidad</th></tr></thead>
+<tbody data-lista="enfermeria"></tbody></table></div>
+</article>
+<article id="enfermeria-1" class="panel vista" hidden><h3>Registrar personal de enfermería</h3>
+<form data-modo="alta" data-tabla="enfermeria"><div class="form-grid">
+<label>Nombre<input type="text" required></label>
+<label>Especialidad<input type="text" required></label>
+<label>Disponibilidad<select required><option>Disponible</option><option>No disponible</option></select></label>
+</div><button class="btn">Guardar</button></form>
+</article>
+<article id="enfermeria-2" class="panel vista" hidden><h3>Editar información</h3>
+<div class="tabla"><table><thead><tr><th>Nombre</th><th>Especialidad</th><th>Disponibilidad</th></tr></thead>
+<tbody data-lista="enfermeria"></tbody></table></div><label>Registro<select class="registros" data-origen="enfermeria"></select></label><form data-modo="editar" data-tabla="enfermeria"><div class="form-grid">
+<label>Nombre<input type="text" required></label>
+<label>Especialidad<input type="text" required></label>
+<label>Disponibilidad<select required><option>Disponible</option><option>No disponible</option></select></label>
+</div><button class="btn">Guardar</button></form>
+</article>
+<article id="enfermeria-3" class="panel vista" hidden><h3>Especialidad</h3>
+<form data-modo="demo" data-tabla=""><div class="form-grid">
+<label>Enfermero<select class="referencia" data-origen="enfermeria" required><option value="">Seleccionar</option></select></label>
+<label>Especialidad<input type="text" required></label>
+</div><button class="btn">Guardar</button></form>
+</article>
+<article id="enfermeria-4" class="panel vista" hidden><h3>Disponibilidad</h3>
+<form data-modo="demo" data-tabla=""><div class="form-grid">
+<label>Enfermero<select class="referencia" data-origen="enfermeria" required><option value="">Seleccionar</option></select></label>
+<label>Fecha<input type="date" required></label>
+<label>Hora inicio<input type="time" required></label>
+<label>Hora fin<input type="time" required></label>
+</div><button class="btn">Guardar</button></form>
+</article>
+<article id="enfermeria-5" class="panel vista" hidden><h3>Revisar disponibilidad</h3>
+<div class="tabla"><table><thead><tr><th>Nombre</th><th>Especialidad</th><th>Disponibilidad</th></tr></thead>
+<tbody data-lista="enfermeria"></tbody></table></div>
+</article>
+<article id="enfermeria-6" class="panel vista" hidden><h3>Actualizar</h3>
+<form data-modo="demo" data-tabla=""><div class="form-grid">
+<label>Enfermero<select class="referencia" data-origen="enfermeria" required><option value="">Seleccionar</option></select></label>
+<label>Fecha<input type="date" required></label>
+<label>Hora inicio<input type="time" required></label>
+<label>Hora fin<input type="time" required></label>
+</div><button class="btn">Guardar</button></form>
+</article>
+<article id="enfermeria-7" class="panel vista" hidden><h3>Bloquear fechas</h3>
+<form data-modo="demo" data-tabla=""><div class="form-grid">
+<label>Enfermero<select class="referencia" data-origen="enfermeria" required><option value="">Seleccionar</option></select></label>
+<label>Fecha<input type="date" required></label>
+<label>Motivo<input type="text" required></label>
+</div><button class="btn">Guardar</button></form>
+</article>
+</section>
+<!-- Consulta y exportación de reportes -->
+<section id="reportes" class="seccion" hidden><h2>Reportes</h2><nav class="submenus">
+<button data-tab="reportes-0" class="activo">Pacientes registrados</button>
+<button data-tab="reportes-1" class="">Personal registrado</button>
+<button data-tab="reportes-2" class="">Servicios realizados</button>
+<button data-tab="reportes-3" class="">Visitas realizadas</button>
+<button data-tab="reportes-4" class="">Asignaciones por enfermero</button>
+<button data-tab="reportes-5" class="">Exportar PDF</button>
+<button data-tab="reportes-6" class="">Exportar Excel</button>
+</nav>
+<article id="reportes-0" class="panel vista" ><h3>Pacientes registrados</h3>
+<div class="tabla"><table><thead><tr><th>Nombre</th><th>Teléfono</th><th>Dirección</th><th>Estado</th></tr></thead>
+<tbody data-lista="pacientes"></tbody></table></div>
+</article>
+<article id="reportes-1" class="panel vista" hidden><h3>Personal registrado</h3>
+<div class="tabla"><table><thead><tr><th>Nombre</th><th>Especialidad</th><th>Disponibilidad</th></tr></thead>
+<tbody data-lista="enfermeria"></tbody></table></div>
+</article>
+<article id="reportes-2" class="panel vista" hidden><h3>Servicios realizados</h3>
+<div class="tabla"><table><thead><tr><th>Paciente</th><th>Enfermero</th><th>Servicio</th><th>Fecha</th><th>Hora inicio</th><th>Hora fin</th><th>Estado</th></tr></thead>
+<tbody data-lista="asignaciones"></tbody></table></div>
+
+</article>
+<article id="reportes-3" class="panel vista" hidden><h3>Visitas realizadas</h3>
+<div class="tabla"><table><thead><tr><th>Paciente</th><th>Fecha</th><th>Estado</th><th>Observaciones</th></tr></thead>
+<tbody data-lista="visitas"></tbody></table></div>
+
+</article>
+<article id="reportes-4" class="panel vista" hidden><h3>Asignaciones por enfermero</h3>
+<div class="tabla"><table><thead><tr><th>Paciente</th><th>Enfermero</th><th>Servicio</th><th>Fecha</th><th>Hora inicio</th><th>Hora fin</th><th>Estado</th></tr></thead>
+<tbody data-lista="asignaciones"></tbody></table></div>
+
+</article>
+<article id="reportes-5" class="panel vista" hidden><h3>Exportar PDF</h3>
+<div class="tabla"><table><thead><tr><th>Paciente</th><th>Enfermero</th><th>Servicio</th><th>Fecha</th><th>Hora inicio</th><th>Hora fin</th><th>Estado</th></tr></thead>
+<tbody data-lista="asignaciones"></tbody></table></div>
+<button class="btn" onclick="window.print()">Imprimir / guardar PDF</button>
+</article>
+<article id="reportes-6" class="panel vista" hidden><h3>Exportar Excel</h3>
+<div class="tabla"><table><thead><tr><th>Paciente</th><th>Enfermero</th><th>Servicio</th><th>Fecha</th><th>Hora inicio</th><th>Hora fin</th><th>Estado</th></tr></thead>
+<tbody data-lista="asignaciones"></tbody></table></div>
+<button class="btn" data-export>Descargar CSV para Excel</button>
+</article>
+</section>
+<!-- Registro y consulta de servicios -->
+<section id="servicios" class="seccion" hidden><h2>Catálogo de Servicios</h2><nav class="submenus">
+<button data-tab="servicios-0" class="activo">Consultar servicios</button>
+<button data-tab="servicios-1" class="">Registrar servicio</button>
+<button data-tab="servicios-2" class="">Ver detalle del servicio</button>
+<button data-tab="servicios-3" class="">Editar servicio</button>
+</nav>
+<article id="servicios-0" class="panel vista" ><h3>Consultar servicios</h3>
+<div class="tabla"><table><thead><tr><th>Servicio</th><th>Descripción</th></tr></thead>
+<tbody data-lista="servicios"></tbody></table></div>
+</article>
+<article id="servicios-1" class="panel vista" hidden><h3>Registrar servicio</h3>
+<form data-modo="alta" data-tabla="servicios"><div class="form-grid">
+<label>Servicio<input type="text" required></label>
+<label>Descripción<input type="text" required></label>
+</div><button class="btn">Guardar</button></form>
+</article>
+<article id="servicios-2" class="panel vista" hidden><h3>Ver detalle del servicio</h3>
+<div class="tabla"><table><thead><tr><th>Servicio</th><th>Descripción</th></tr></thead>
+<tbody data-lista="servicios"></tbody></table></div>
+</article>
+<article id="servicios-3" class="panel vista" hidden><h3>Editar servicio</h3>
+<div class="tabla"><table><thead><tr><th>Servicio</th><th>Descripción</th></tr></thead>
+<tbody data-lista="servicios"></tbody></table></div><label>Registro<select class="registros" data-origen="servicios"></select></label><form data-modo="editar" data-tabla="servicios"><div class="form-grid">
+<label>Servicio<input type="text" required></label>
+<label>Descripción<input type="text" required></label>
+</div><button class="btn">Guardar</button></form>
+</article>
+</section>
+<!-- Asignaciones y calendario -->
+<section id="asignaciones" class="seccion" hidden><h2>Asignaciones y Agenda</h2><nav class="submenus">
+<button data-tab="asignaciones-0" class="activo">Consultar asignaciones</button>
+<button data-tab="asignaciones-1" class="">Registrar asignación</button>
+<button data-tab="asignaciones-2" class="">Ver detalle de asignación</button>
+<button data-tab="asignaciones-3" class="">Editar asignación</button>
+<button data-tab="asignaciones-4" class="">Consultar disponibilidad del personal</button>
+<button data-tab="asignaciones-5" class="">Calendario mensual</button>
+</nav>
+<article id="asignaciones-0" class="panel vista" ><h3>Consultar asignaciones</h3>
+<div class="tabla"><table><thead><tr><th>Paciente</th><th>Enfermero</th><th>Servicio</th><th>Fecha</th><th>Hora inicio</th><th>Hora fin</th><th>Estado</th></tr></thead>
+<tbody data-lista="asignaciones"></tbody></table></div>
+</article>
+<article id="asignaciones-1" class="panel vista" hidden><h3>Registrar asignación</h3>
+<form data-modo="alta" data-tabla="asignaciones"><div class="form-grid">
+<label>Paciente<select class="referencia" data-origen="pacientes" required><option value="">Seleccionar</option></select></label>
+<label>Enfermero<select class="referencia" data-origen="enfermeria" required><option value="">Seleccionar</option></select></label>
+<label>Servicio<select class="referencia" data-origen="servicios" required><option value="">Seleccionar</option></select></label>
+<label>Fecha<input type="date" required></label>
+<label>Hora inicio<input type="time" required></label>
+<label>Hora fin<input type="time" required></label>
+<label>Estado<select required><option>Registrada</option><option>Confirmada</option><option>En servicio</option><option>Finalizada</option><option>Cerrada</option><option>Cancelada</option></select></label>
+</div><button class="btn">Guardar</button></form>
+</article>
+<article id="asignaciones-2" class="panel vista" hidden><h3>Ver detalle de asignación</h3>
+<div class="tabla"><table><thead><tr><th>Paciente</th><th>Enfermero</th><th>Servicio</th><th>Fecha</th><th>Hora inicio</th><th>Hora fin</th><th>Estado</th></tr></thead>
+<tbody data-lista="asignaciones"></tbody></table></div>
+</article>
+<article id="asignaciones-3" class="panel vista" hidden><h3>Editar asignación</h3>
+<div class="tabla"><table><thead><tr><th>Paciente</th><th>Enfermero</th><th>Servicio</th><th>Fecha</th><th>Hora inicio</th><th>Hora fin</th><th>Estado</th></tr></thead>
+<tbody data-lista="asignaciones"></tbody></table></div><label>Registro<select class="registros" data-origen="asignaciones"></select></label><form data-modo="editar" data-tabla="asignaciones"><div class="form-grid">
+<label>Paciente<select class="referencia" data-origen="pacientes" required><option value="">Seleccionar</option></select></label>
+<label>Enfermero<select class="referencia" data-origen="enfermeria" required><option value="">Seleccionar</option></select></label>
+<label>Servicio<select class="referencia" data-origen="servicios" required><option value="">Seleccionar</option></select></label>
+<label>Fecha<input type="date" required></label>
+<label>Hora inicio<input type="time" required></label>
+<label>Hora fin<input type="time" required></label>
+<label>Estado<select required><option>Registrada</option><option>Confirmada</option><option>En servicio</option><option>Finalizada</option><option>Cerrada</option><option>Cancelada</option></select></label>
+</div><button class="btn">Guardar</button></form>
+</article>
+<article id="asignaciones-4" class="panel vista" hidden><h3>Consultar disponibilidad del personal</h3>
+<div class="tabla"><table><thead><tr><th>Nombre</th><th>Especialidad</th><th>Disponibilidad</th></tr></thead>
+<tbody data-lista="enfermeria"></tbody></table></div>
+</article>
+<article id="asignaciones-5" class="panel vista" hidden><h3>Calendario mensual</h3>
+<label>Mes<input type="month" id="mes"></label><div id="calendario" class="calendario"></div>
+</article>
+</section>
+<!-- Registro de visitas y seguimiento -->
+<section id="visitas" class="seccion" hidden><h2>Visitas y Seguimiento</h2><nav class="submenus">
+<button data-tab="visitas-0" class="activo">Consultar visitas</button>
+<button data-tab="visitas-1" class="">Registrar visita</button>
+<button data-tab="visitas-2" class="">Ver detalle de visita</button>
+<button data-tab="visitas-3" class="">Registrar seguimiento</button>
+<button data-tab="visitas-4" class="">Consultar seguimiento</button>
+<button data-tab="visitas-5" class="">Capturar información del paciente en la visita</button>
+</nav>
+<article id="visitas-0" class="panel vista" ><h3>Consultar visitas</h3>
+<div class="tabla"><table><thead><tr><th>Paciente</th><th>Fecha</th><th>Estado</th><th>Observaciones</th></tr></thead>
+<tbody data-lista="visitas"></tbody></table></div>
+</article>
+<article id="visitas-1" class="panel vista" hidden><h3>Registrar visita</h3>
+<form data-modo="alta" data-tabla="visitas"><div class="form-grid">
+<label>Paciente<select class="referencia" data-origen="pacientes" required><option value="">Seleccionar</option></select></label>
+<label>Fecha<input type="date" required></label>
+<label>Estado<select required><option>Programada</option><option>Realizada</option><option>Cancelada</option></select></label>
+<label>Observaciones<input type="text" required></label>
+</div><button class="btn">Guardar</button></form>
+</article>
+<article id="visitas-2" class="panel vista" hidden><h3>Ver detalle de visita</h3>
+<div class="tabla"><table><thead><tr><th>Paciente</th><th>Fecha</th><th>Estado</th><th>Observaciones</th></tr></thead>
+<tbody data-lista="visitas"></tbody></table></div>
+</article>
+<article id="visitas-3" class="panel vista" hidden><h3>Registrar seguimiento</h3>
+<form data-modo="alta" data-tabla="seguimiento"><div class="form-grid">
+<label>Paciente<select class="referencia" data-origen="pacientes" required><option value="">Seleccionar</option></select></label>
+<label>Seguimiento<input type="text" required></label>
+</div><button class="btn">Guardar</button></form>
+</article>
+<article id="visitas-4" class="panel vista" hidden><h3>Consultar seguimiento</h3>
+<table><thead><tr><th>Paciente</th><th>Seguimiento</th></tr></thead><tbody data-lista="seguimiento"></tbody></table>
+</article>
+<article id="visitas-5" class="panel vista" hidden><h3>Capturar información del paciente en la visita</h3>
+<form data-modo="demo" data-tabla=""><div class="form-grid">
+<label>Paciente<select class="referencia" data-origen="pacientes" required><option value="">Seleccionar</option></select></label>
+<label>Presión arterial<input type="text" required></label>
+<label>Temperatura<input type="text" required></label>
+<label>Medicamentos<input type="text" required></label>
+<label>Observaciones<input type="text" required></label>
+</div><button class="btn">Guardar</button></form>
+</article>
+</section>
+<!-- Carga y consulta de documentos -->
+<section id="documentos" class="seccion" hidden><h2>Documentos</h2><nav class="submenus">
+<button data-tab="documentos-0" class="activo">Subir documento</button>
+<button data-tab="documentos-1" class="">Consultar documentos</button>
+<button data-tab="documentos-2" class="">Descargar documento</button>
+<button data-tab="documentos-3" class="">Eliminar documento</button>
+</nav>
+<article id="documentos-0" class="panel vista" ><h3>Subir documento</h3>
+<form data-modo="archivo" data-tabla="documentos"><div class="form-grid">
+<label>Paciente<select class="referencia" data-origen="pacientes" required><option value="">Seleccionar</option></select></label>
+<label>Archivo<input type="file" required></label>
+</div><button class="btn">Guardar</button></form>
+</article>
+<article id="documentos-1" class="panel vista" hidden><h3>Consultar documentos</h3>
+<div class="tabla"><table><thead><tr><th>Documento</th><th>Paciente</th><th>Fecha</th></tr></thead>
+<tbody data-lista="documentos"></tbody></table></div>
+</article>
+<article id="documentos-2" class="panel vista" hidden><h3>Descargar documento</h3>
+<div class="tabla"><table><thead><tr><th>Documento</th><th>Paciente</th><th>Fecha</th></tr></thead>
+<tbody data-lista="documentos"></tbody></table></div><p>Selecciona un archivo cargado durante esta sesión.</p><select class="archivos"></select><button class="btn" data-archivo="descargar">Descargar documento</button>
+</article>
+<article id="documentos-3" class="panel vista" hidden><h3>Eliminar documento</h3>
+<div class="tabla"><table><thead><tr><th>Documento</th><th>Paciente</th><th>Fecha</th></tr></thead>
+<tbody data-lista="documentos"></tbody></table></div><p>Selecciona un archivo cargado durante esta sesión.</p><select class="archivos"></select><button class="btn" data-archivo="eliminar">Eliminar documento</button>
+</article>
+</section>
+<!-- Información y cambios del perfil -->
+<section id="perfil" class="seccion" hidden><h2>Mi Perfil</h2><nav class="submenus">
+<button data-tab="perfil-0" class="activo">Consultar perfil</button>
+<button data-tab="perfil-1" class="">Editar perfil</button>
+<button data-tab="perfil-2" class="">Cambiar contraseña</button>
+</nav>
+<article id="perfil-0" class="panel vista" ><h3>Consultar perfil</h3>
+<div class="tabla"><table><thead><tr><th>Nombre</th><th>Correo</th><th>Rol</th></tr></thead>
+<tbody data-lista="perfil"></tbody></table></div>
+</article>
+<article id="perfil-1" class="panel vista" hidden><h3>Editar perfil</h3>
+<div class="tabla"><table><thead><tr><th>Nombre</th><th>Correo</th><th>Rol</th></tr></thead>
+<tbody data-lista="perfil"></tbody></table></div><label>Registro<select class="registros" data-origen="perfil"></select></label><form data-modo="editar" data-tabla="perfil"><div class="form-grid">
+<label>Nombre<input type="text" required></label>
+<label>Correo<input type="email" required></label>
+<label>Rol<select required><option>Administrador</option><option>Coordinador de Enfermería</option><option>Personal de Enfermería</option><option>Capital Humano</option></select></label>
+</div><button class="btn">Guardar</button></form>
+</article>
+<article id="perfil-2" class="panel vista" hidden><h3>Cambiar contraseña</h3>
+<form data-modo="demo" data-tabla=""><div class="form-grid">
+<label>Nueva contraseña<input type="password" required></label>
+</div><button class="btn">Guardar</button></form>
+</article>
+</section>
+</main></div>
+<!-- Archivo que controla las acciones de la página -->
 <script src="script.js"></script>
-
 </body>
 </html>

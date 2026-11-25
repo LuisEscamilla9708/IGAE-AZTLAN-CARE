@@ -1,447 +1,53 @@
-/* ============================= */
-/* CONFIGURACIÓN GENERAL */
-/* ============================= */
-
-* {
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f4f6f8;
-    color: #333;
-}
-
-button,
-input,
-select,
-textarea {
-    font-family: Arial, sans-serif;
-}
-
-
-/* ============================= */
-/* CONTENEDOR PRINCIPAL */
-/* ============================= */
-
-.contenedor {
-    display: flex;
-    min-height: 100vh;
-}
-
-
-/* ============================= */
-/* MENÚ LATERAL */
-/* ============================= */
-
-.sidebar {
-    width: 240px;
-    background-color: #123a5a;
-    padding: 20px 10px;
-    color: white;
-}
-
-.logo {
-    text-align: center;
-    margin-bottom: 25px;
-}
-
-.logo h2 {
-    margin: 0;
-    font-size: 30px;
-}
-
-.logo p {
-    margin-top: 5px;
-    font-size: 13px;
-}
-
-
-.menu-btn {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 5px;
-
-    border: none;
-    border-radius: 6px;
-
-    background-color: transparent;
-    color: white;
-
-    text-align: left;
-    cursor: pointer;
-
-    font-size: 14px;
-}
-
-
-.menu-btn:hover {
-    background-color: #1d5278;
-}
-
-
-.menu-btn.activo {
-    background-color: #2d7ca8;
-}
-
-
-.cerrar-sesion {
-    width: 100%;
-    padding: 12px;
-    margin-top: 20px;
-
-    background-color: #a83232;
-    color: white;
-
-    border: none;
-    border-radius: 6px;
-
-    cursor: pointer;
-}
-
-
-/* ============================= */
-/* CONTENIDO */
-/* ============================= */
-
-.contenido {
-    flex: 1;
-    padding: 25px;
-}
-
-
-/* ============================= */
-/* CABECERA */
-/* ============================= */
-
-.encabezado {
-    background-color: white;
-
-    padding: 18px 25px;
-
-    border-radius: 8px;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    margin-bottom: 25px;
-}
-
-
-.encabezado h1 {
-    margin: 0;
-    font-size: 25px;
-}
-
-
-.encabezado p {
-    margin: 5px 0 0;
-    color: #777;
-}
-
-
-.usuario {
-    background-color: #e8f0f5;
-
-    padding: 10px 15px;
-
-    border-radius: 20px;
-
-    font-weight: bold;
-}
-
-
-/* ============================= */
-/* SECCIONES */
-/* ============================= */
-
-.seccion {
-    display: none;
-}
-
-
-.seccion.activa {
-    display: block;
-}
-
-
-.descripcion {
-    color: #666;
-    margin-bottom: 25px;
-}
-
-
-/* ============================= */
-/* TARJETAS */
-/* ============================= */
-
-.tarjetas {
-    display: grid;
-
-    grid-template-columns:
-        repeat(auto-fit, minmax(180px, 1fr));
-
-    gap: 15px;
-
-    margin-bottom: 25px;
-}
-
-
-.tarjeta {
-    background-color: white;
-
-    padding: 20px;
-
-    border-radius: 8px;
-
-    border-left: 5px solid #2d7ca8;
-}
-
-
-.tarjeta h3 {
-    margin: 0;
-    font-size: 16px;
-}
-
-
-.numero {
-    font-size: 30px;
-    font-weight: bold;
-
-    color: #123a5a;
-
-    margin: 10px 0;
-}
-
-
-.tarjeta span {
-    color: #777;
-    font-size: 13px;
-}
-
-
-/* ============================= */
-/* PANELES */
-/* ============================= */
-
-.panel {
-    background-color: white;
-
-    padding: 20px;
-
-    border-radius: 8px;
-
-    margin-bottom: 20px;
-}
-
-
-.panel h3 {
-    margin-top: 0;
-}
-
-
-/* ============================= */
-/* FORMULARIOS */
-/* ============================= */
-
-.form-grid {
-    display: grid;
-
-    grid-template-columns:
-        repeat(auto-fit, minmax(200px, 1fr));
-
-    gap: 15px;
-
-    margin-bottom: 20px;
-}
-
-
-label {
-    display: block;
-
-    font-weight: bold;
-
-    margin-bottom: 5px;
-}
-
-
-input,
-select,
-textarea {
-    width: 100%;
-
-    padding: 10px;
-
-    border: 1px solid #ccc;
-
-    border-radius: 5px;
-
-    margin-bottom: 10px;
-}
-
-
-textarea {
-    resize: vertical;
-}
-
-
-/* ============================= */
-/* BOTONES */
-/* ============================= */
-
-.btn-principal {
-    background-color: #2d7ca8;
-
-    color: white;
-
-    border: none;
-
-    padding: 10px 18px;
-
-    border-radius: 5px;
-
-    cursor: pointer;
-
-    margin-right: 5px;
-}
-
-
-.btn-principal:hover {
-    background-color: #226184;
-}
-
-
-.btn-secundario {
-    background-color: #666;
-
-    color: white;
-
-    border: none;
-
-    padding: 10px 18px;
-
-    border-radius: 5px;
-
-    cursor: pointer;
-}
-
-
-.btn-tabla {
-    background-color: #2d7ca8;
-
-    color: white;
-
-    border: none;
-
-    padding: 6px 10px;
-
-    border-radius: 4px;
-
-    cursor: pointer;
-}
-
-
-/* ============================= */
-/* TABLAS */
-/* ============================= */
-
-table {
-    width: 100%;
-
-    border-collapse: collapse;
-
-    margin-top: 15px;
-}
-
-
-th {
-    background-color: #123a5a;
-
-    color: white;
-
-    padding: 10px;
-
-    text-align: left;
-}
-
-
-td {
-    padding: 10px;
-
-    border-bottom: 1px solid #ddd;
-}
-
-
-tr:hover {
-    background-color: #f5f5f5;
-}
-
-
-/* ============================= */
-/* ESTADOS */
-/* ============================= */
-
-.estado {
-    padding: 5px 10px;
-
-    border-radius: 15px;
-
-    font-size: 12px;
-}
-
-
-.disponible {
-    background-color: #d9f2df;
-    color: #1d7030;
-}
-
-
-.ocupado {
-    background-color: #f6dada;
-    color: #9d2828;
-}
-
-
-/* ============================= */
-/* PERFIL */
-/* ============================= */
-
-.perfil p {
-    padding: 8px 0;
-}
-
-
-/* ============================= */
-/* TABLET Y CELULAR */
-/* ============================= */
-
-@media (max-width: 800px) {
-
-    .contenedor {
-        display: block;
-    }
-
-    .sidebar {
-        width: 100%;
-    }
-
-    .menu-btn {
-        text-align: center;
-    }
-
-    .contenido {
-        padding: 15px;
-    }
-
-    .encabezado {
-        display: block;
-    }
-
-    .usuario {
-        margin-top: 15px;
-        display: inline-block;
-    }
-
-}
+/* Ajustes generales de la página */
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { margin: 0; font: 15px Arial, sans-serif; background: #f4f6f8; color: #263746; }
+button, input, select { font: inherit; }
+button { cursor: pointer; border: 0; border-radius: 6px; }
+/* Distribución del menú y el contenido */
+.contenedor { display: flex; min-height: 100vh; }
+/* Colores y tamaño del menú lateral */
+.sidebar { width: 240px; flex-shrink: 0; background: #123a5a; padding: 20px 12px; color: white; }
+.logo { text-align: center; margin-bottom: 25px; }
+.logo h1, .logo p { margin: 5px; }
+.menu-btn, .cerrar { display: block; width: 100%; text-align: left; padding: 12px; margin-bottom: 5px; color: white; background: transparent; }
+.menu-btn:hover, .menu-btn.activo { background: #2d7ca8; }
+.cerrar { background: #a83232; margin-top: 20px; text-align: center; }
+/* Espacio para mostrar cada módulo */
+.contenido { flex: 1; min-width: 0; padding: 25px; }
+/* Diseño de los paneles y encabezados */
+header, .panel, .tarjeta { background: white; padding: 20px; border-radius: 9px; margin-bottom: 20px; }
+header { display: flex; align-items: center; justify-content: space-between; gap: 15px; }
+header h1, header p, .panel h3, .tarjeta h3 { margin: 0 0 10px; }
+header p, small, footer { color: #647383; }
+header strong { background: #e8f0f5; padding: 10px 15px; border-radius: 20px; }
+/* Distribución de tarjetas y formularios */
+.tarjetas, .form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 15px; }
+.tarjeta { border-left: 5px solid #2d7ca8; }
+.tarjeta strong { display: block; font-size: 32px; color: #123a5a; margin: 10px 0; }
+/* Botones de cada módulo */
+.submenus { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+.submenus button { background: #e4edf4; color: #123a5a; padding: 10px 14px; }
+.submenus button.activo, .btn { background: #2d7ca8; color: white; }
+.btn { padding: 10px 18px; margin-top: 10px; }
+/* Campos de los formularios */
+label { display: block; font-weight: bold; margin: 10px 0; }
+input, select { display: block; width: 100%; padding: 10px; border: 1px solid #c6d0d9; border-radius: 5px; margin-top: 6px; background: white; }
+/* Diseño de las tablas */
+.tabla { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; margin: 12px 0; }
+th, td { padding: 11px; text-align: left; border-bottom: 1px solid #dde4ea; }
+th { background: #123a5a; color: white; }
+/* Pantalla de inicio de sesión */
+.acceso { min-height: 100vh; display: grid; place-items: center; padding: 20px; }
+.login { width: min(420px, 100%); box-shadow: 0 8px 30px #123a5a20; }
+.login h1, .login > p { text-align: center; color: #123a5a; }
+.login details { margin: 18px 0; }
+/* Diseño del calendario */
+.calendario { display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px; }
+.calendario div { min-height: 65px; padding: 8px; background: #edf3f8; border-radius: 4px; overflow-wrap: anywhere; }
+.calendario small { display: block; }
+/* Ajustes para pantallas pequeñas */
+@media(max-width: 800px) { .contenedor { display: block; } .sidebar { width: 100%; } .contenido { padding: 15px; } header { flex-wrap: wrap; } }
+/* Oculta el menú al imprimir */
+@media print { .sidebar, header, .submenus, button, footer { display: none !important; } .contenido { padding: 0; } }
